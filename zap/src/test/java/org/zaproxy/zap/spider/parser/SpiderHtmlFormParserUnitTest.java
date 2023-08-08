@@ -1665,6 +1665,28 @@ class SpiderHtmlFormParserUnitTest extends SpiderParserTestUtils {
                             formAttributes));
             return "";
         }
+
+        @Override
+        public String getValueForMultipartEnctype(
+                URI uri,
+                String targetUri,
+                String fieldName,
+                String defaultValue,
+                List<String> values,
+                Map<String, String> formAttributes,
+                Map<String, String> fieldAttributes,
+                String enctype) {
+            fields.add(
+                    new FormField(
+                            uri.toString(),
+                            targetUri,
+                            fieldName,
+                            defaultValue,
+                            values,
+                            fieldAttributes,
+                            formAttributes));
+            return "";
+        }
     }
 
     private static class FormField {

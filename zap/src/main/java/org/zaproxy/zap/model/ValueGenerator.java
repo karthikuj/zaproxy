@@ -45,4 +45,27 @@ public interface ValueGenerator {
             List<String> definedValues,
             Map<String, String> envAttributes,
             Map<String, String> fieldAttributes);
+
+    /**
+     * The interface that accepts default values for the spider.
+     *
+     * @param uri the uri
+     * @param url the resolved URL
+     * @param fieldId the name associated with the current field
+     * @param defaultValue the value of 'value attribute' if it has one
+     * @param definedValues the predefined values for the field, if present
+     * @param envAttributes all attributes of the current form
+     * @param fieldAttributes all attributes of the current field
+     * @param enctype value of the enctype attribute
+     * @since 2.6.0
+     */
+    String getValueForMultipartEnctype(
+            URI uri,
+            String url,
+            String fieldId,
+            String defaultValue,
+            List<String> definedValues,
+            Map<String, String> envAttributes,
+            Map<String, String> fieldAttributes,
+            String enctype);
 }
